@@ -19,5 +19,3 @@ Have a online python compiler or use visual studio code
 
 Then just copy and paste the code into visual studio or a python compiler
 
-### Flow chart made
-![flow](TEMPTEXT)
