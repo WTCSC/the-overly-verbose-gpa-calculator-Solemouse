@@ -1,3 +1,4 @@
+# Validates that the grades are between 0 and 4 and if not then it asks for a new input
 def valid(prompt):
     while True:
         try:
@@ -9,7 +10,7 @@ def valid(prompt):
         except ValueError:
             print("Sorry, cant do that, invalid input")
 
-
+# Checks that the grades and greater than 0 and if not then it asks for a new input
 def pos_int(prompt):
     while True:
         try:
@@ -21,7 +22,7 @@ def pos_int(prompt):
         except ValueError:
             print("Sorry Bud, cant be that number")
 
-
+# Calculates the gpa with the sum of the grade list and the length of the grade list
 def calc(grade_list):
     return sum(grade_list) / len(grade_list)
 
@@ -32,21 +33,24 @@ how_many = pos_int("\nHow many classes or grades would you like to add to your d
 grades = []
 print(f"\nPlease enter your {how_many} grades as a number 0.0 through 4.0")
 
+# Asks for the grades and appends it to a list
 for i in range(how_many):
     grade = valid(f" - Enter grade for class #{i + 1}: ")
     grades.append(grade)
 
+# Calculates the gpa with the defined calc function 
 current = calc(grades)
 print(f"\nYour current GPA is this, is that good? {current:.2f}")
 
 print("\nLets see if your performance is disappointment worthy")
 half = len(grades) // 2
 
+# Checks if you only entered one class and if you want to analyze the first half or second half of the grades
 if len(grades) == 1:
     print("Damn, only one class?")
 else:
     choice = input("Would you like to analyze the 'first' half or 'second' half of your disappointment? ").strip().lower()
-
+    # Checks if the choice starts with f or s then sets the semester_grades to either first half or second half depending on input
     if choice.startswith("f"):
         semester_grades = grades[:half]
         semester_name = "first"
@@ -70,6 +74,7 @@ else:
 
 goal = valid("\nGoal? Do you want to set a goal? Alright, what gpa do you want")
 
+# Checks if the gpa you want is acheivable with only raising 1 grade to a 4 
 if goal <= current:
     print(f"Your current grades of {current:.2f} already meets or exceeds your disappointment")
 else:
